@@ -1,23 +1,33 @@
 ### A Pluto.jl notebook ###
-# v0.17.5
+# v0.19.22
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ 50ec2550-7256-11ec-1908-fbece8adaf13
+# ╠═╡ show_logs = false
 begin
-	import Pkg
-	Pkg.activate(@__DIR__)
+    using Pkg
+    Pkg.activate(mktempdir())
+	# 
+    Pkg.add([
+        Pkg.PackageSpec(url="https://github.com/mmikhasenko/ThreeBodyDecay.jl"),
+        Pkg.PackageSpec("Polynomials"),
+        Pkg.PackageSpec("Plots"),
+        Pkg.PackageSpec("PlutoUI")
+    ])
+    # 
 	using ThreeBodyDecay
 	using Plots
-	import Plots.PlotMeasures: mm
-	# 
 	using PlutoUI
+	import Plots.PlotMeasures: mm
 end
 
 # ╔═╡ 602a1012-cf64-425c-a347-c582253255dc
 md"""
 # Comparison of the Dalitz-plot models
+
+For JPC=1--, we compare two model of the Dalitz plot distribution using a test statistics base on the log-likelihood difference.
 """
 
 # ╔═╡ c5c79442-02d4-4008-a76d-b7e255cce202
@@ -46,12 +56,7 @@ const ms = ThreeBodyMasses(mπ,mπ,mπ; m0)
 
 Kibble function of Mandelstam invatiant variables
 """
-function ϕ(σs)
-	ms²=ms^2
-	return	λ(λ(ms²[4],σs[1],ms²[1]),
-			  λ(ms²[4],σs[2],ms²[2]),
-			  λ(ms²[4],σs[3],ms²[3]))
-end
+ϕ(σs) = Kibble(σs, ms^2) / (16ms.m0^2)
 
 # ╔═╡ 37d00c66-5784-42fc-8d05-2fbb6ee00ceb
 """
@@ -62,7 +67,7 @@ Three-body phase-space factor projected to one dimension
 function ρ(k,σs)
 	ms²=ms^2
 	i,j,_ = ijk(k)
-	return	sqrt(λ(ms²[4],σs[k],ms²[k])*λ(σs[k],ms²[i],ms²[j]))
+	return	sqrt(Kallen(ms²[4],σs[k],ms²[k])*Kallen(σs[k],ms²[i],ms²[j]))
 end
 
 # ╔═╡ e4147784-1a90-40c2-868a-aa41412a760b

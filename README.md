@@ -17,4 +17,4 @@ the selected set of quantum numbers and various masses.
 
 - [`N-001-cartesian-pions.jl`](crosscheck/N-001-cartesian-pions.jl) Relation of the physical decay to the isospin amplitudes in cartesian coordinates
 - [`N-002-covariant3pi.jl`](crosscheck/N-002-covariant3pi.jl) Evaluation of the covariant structures in the s-channel
-- [`N-003-omega.jl`](crosscheck/N-003-omega.jl) MC experiments on discriminating models
+- [`N-003-omega.jl`](crosscheck/N-003-omega.jl) early-stage MC experiments on discriminating models
