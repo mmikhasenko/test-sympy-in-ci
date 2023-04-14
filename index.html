@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Analysis of rescattering effects in 3π</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+      h1, h2 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 30px;
+      }
+      a {
+        text-decoration: underline;
+        color: #0099ff;
+      }
+      ul {
+        list-style-type: disc;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Analysis of rescattering effects in 3π</h1>
+    <p>Decays into three particles are often described in terms of two-body resonances and a non-
+      interacting spectator particle. To go beyond this simplest isobar model, crossed-channel rescattering effects
+      need to be accounted for. We quantify the importance of
+      these rescattering effects in three-pion systems for different decay masses and angular-momentum quantum
+      numbers. We provide the amplitude decompositions for
+      four decay processes with total JPC = 0−−, 1−−,
+      1−+, and 2++, all of which decay predominantly as
+      ρπ states. Two-pion rescattering is described in terms
+      of an Omn`es function, which incorporates the ρ resonance. Inclusion of crossed-channel effects is achieved
+      by solving the Khuri–Treiman integral equations. The
+      unbinned log-likelihood estimator is used to determine
+      the significance of the rescattering effects beyond two-body resonances; we compute the minimum number of
+      events necessary to unambiguously find these in future
+      Dalitz-plot analyses. Kinematic effects that enhance or
+      dilute the rescattering are identified for the selected set
+      of quantum numbers and various masses.</p>
+    <h2>Code</h2>
+    <h3>Cross check (Julia)</h2>
+    <ul>
+      <li><a href="built/covariant3pi.html"> covariant3pi </a> Evaluation of the covariant structures in the s-channel </li>
+      <li><a href="built/cartesian-pions.html"> cartesian-pions.jl </a> Relation of the physical decay to the isospin amplitudes in cartesian coordinates </li>
+    </ul>
+  </body>
+</html>
