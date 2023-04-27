@@ -3,32 +3,32 @@ abstract type Model end
 masses(ℳ) = ℳ.ms # general method
 
 struct OneMinusMinus{T} <: Model
-    ms::ThreeBodyMasses
+    ms::MassTuple
     ξ::T
 end
 # 
 function 𝒜(ℳ::OneMinusMinus, σs)
-	ϕ0 = Kibble(σs, masses(ℳ)^2)
-	return ϕ0>0 ? 0.0 : sqrt(-ϕ0) * 
-		  (𝒜(ℳ.ξ,σs[1]) + 𝒜(ℳ.ξ,σs[2]) + 𝒜(ℳ.ξ,σs[3]))	
+    ϕ0 = Kibble(σs, masses(ℳ)^2)
+    return ϕ0 > 0 ? 0.0 : sqrt(-ϕ0) *
+           (𝒜(ℳ.ξ, σs[1]) + 𝒜(ℳ.ξ, σs[2]) + 𝒜(ℳ.ξ, σs[3]))
 end
 
 struct PureSum{T} <: Model
-    ms::ThreeBodyMasses
+    ms::MassTuple
     ξ::T
 end
 
 function 𝒜(ℳ::PureSum, σs)
-	return 𝒜(ℳ.ξ,σs[1]) + 𝒜(ℳ.ξ,σs[2]) + 𝒜(ℳ.ξ,σs[3])
+    return 𝒜(ℳ.ξ, σs[1]) + 𝒜(ℳ.ξ, σs[2]) + 𝒜(ℳ.ξ, σs[3])
 end
 
 struct PhaseSpace <: Model
-    ms::ThreeBodyMasses
+    ms::MassTuple
 end
 # 
 function 𝒜(ℳ::PhaseSpace, σs)
-	ϕ0 = Kibble(σs, masses(ℳ)^2)
-	return ϕ0>0 ? 0.0 : 1.0
+    ϕ0 = Kibble(σs, masses(ℳ)^2)
+    return ϕ0 > 0 ? 0.0im : 1.0 + 0.0im
 end
 
 

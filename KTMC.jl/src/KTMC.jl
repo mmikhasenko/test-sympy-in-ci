@@ -1,9 +1,10 @@
 module KTMC
 
+using RecipesBase
 using Interpolations
 # 
 using ThreeBodyDecay
-using RecipesBase
+import ThreeBodyDecay: MassTuple
 # 
 
 export BW

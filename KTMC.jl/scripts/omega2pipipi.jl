@@ -1,8 +1,9 @@
 import Pkg
 Pkg.activate(joinpath(@__DIR__, ".."))
+Pkg.instantiate()
 
 using KTMC
-using ThreeBodyDecay
+using KTMC.ThreeBodyDecay
 
 using Plots
 import Plots.PlotMeasures: mm
