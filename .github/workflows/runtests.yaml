@@ -17,6 +17,9 @@ jobs:
           - x64
     steps:
       - uses: actions/checkout@v2
+      - name: Navigate
+        run: |
+          mv -r KTMC.jl/* .
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
@@ -31,10 +34,6 @@ jobs:
             ${{ runner.os }}-test-${{ env.cache-name }}-
             ${{ runner.os }}-test-
             ${{ runner.os }}-
-      - name: Navigate
-        run: |
-          cd KTMC.jl
-          pwd
       - uses: julia-actions/julia-buildpkg@latest
       - uses: julia-actions/julia-runtest@latest
       - uses: julia-actions/julia-processcoverage@v1
