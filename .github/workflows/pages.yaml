@@ -1,4 +1,4 @@
-name: Export Pluto notebooks
+name: Setup GitHub Pages
 on:
     push:
         branches:
