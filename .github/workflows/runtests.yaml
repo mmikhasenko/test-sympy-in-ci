@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Navigate
         run: |
-          mv -r KTMC.jl/* .
+          mv KTMC.jl/* .
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
