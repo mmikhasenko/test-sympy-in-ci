@@ -12,4 +12,4 @@ Let's see if it works.
 
 For testing:
 
-- [`html link`](crosscheck/N-001-cartesian-pions.html)
+- [`html link`](N-001-cartesian-pions.html)
