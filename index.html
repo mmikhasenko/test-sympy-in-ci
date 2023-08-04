@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Your Page Title</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<h1 id="sympy-in-pluto">SymPy in Pluto</h1>
+<p>The repo test the <code>Sympy</code> installation with Pluto notebooks in CI. <img width="862" alt="image" src="https://github.com/mmikhasenko/test-sympy-in-ci/assets/22725744/98e859d6-f291-45a6-887f-9196db8e21a9"></p>
+<p>It used to be sufficient to add empty the <code>PYTHON</code> environment variable to <a href=".github/pages.yaml">CI yaml file</a>.</p>
+<pre><code>        runs-on: ubuntu-latest
+        env:
+            PYTHON: &#39;&#39;</code></pre>
+<p>However, the notebooks appear to fail. E.g. https://mmikhasenko.github.io/rescattering-3pi-2023-001/crosscheck/N-001-cartesian-pions.html</p>
+<p>Using this repository, I found out that the probkem is caused by another <code>Project.toml</code> file in a subfolder. Naively, it should not affer the top level file processing, but it does.</p>
+<p>Here a comparison of CI cout for running <a href="https://github.com/mmikhasenko/test-sympy-in-ci/actions/runs/5749591291/job/15584695559">before</a> and <a href="https://github.com/mmikhasenko/test-sympy-in-ci/actions/runs/5749764081/job/15585199420">after</a> delecting the <code>KTMC.jl/Project.toml</code> <img width="1883" alt="image" src="https://github.com/mmikhasenko/test-sympy-in-ci/assets/22725744/d6c7b7d2-7b44-4cdc-96a2-a67fc40d45c8"></p>
+<p>For testing, once you are on the <a href="https://mmikhasenko.github.io/test-sympy-in-ci/">Pages</a>:</p>
+<ul>
+<li><a href="N-001-cartesian-pions.html"><code>html link</code></a></li>
+</ul>
+</body>
+</html>
